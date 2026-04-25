@@ -183,17 +183,28 @@ let kunci={
 q1:'b',q2:'c',q3:'benar',q4:'salah',q5:'a',q6:'a',q7:'benar',q8:'benar',q9:'d',q10:'benar',q11:'d',q12:'benar',q13:'benar',q14:'c',q15:'benar',q16:'d',q17:'salah',q18:'benar',q19:'d',q20:'salah'
 };
 
-let skor=0;
-let total=20;
+let skor = 0;
+let total = 20;
 
-// 🔍 HITUNG NILAI
 for(let i=1;i<=total;i++){
-  let pilih=document.querySelector('input[name="q'+i+'"]:checked');
+  let pilih = document.querySelector('input[name="q'+i+'"]:checked');
+  let opsi = document.querySelectorAll('input[name="q'+i+'"]');
 
-  if(pilih && pilih.value===kunci['q'+i]){
-    skor++;
+  if(pilih){
+    if(pilih.value === kunci['q'+i]){
+      skor++;
+      pilih.closest("label").style.background = '#bbf7d0';
+    } else {
+      pilih.closest("label").style.background = '#fecaca';
+
+      opsi.forEach(o=>{
+        if(o.value === kunci['q'+i]){
+          o.closest("label").style.background = '#bbf7d0';
+        }
+      });
+    }
   }
-}
+  }
 
 let nilai=Math.round((skor/total)*100);
 let grade = nilai>=90?'A (SELAMAT KAMU FIX WNI)<a href="https://files.catbox.moe/rqgilo.mp4">KLIK DI SINI UNTUK MENDAPATKAN HADIAH UTAMAMU!!!</a>':nilai>=75?'B (hmm sepertinya kamu WNI)<a href="https://mp3tourl.com/audio/1777105336270-cd84c277-2f66-4c73-b5c8-a3823fe6841f.mp3"> Ini hadiah untukmu karena mendapatkan nilai B(KLIK!)</a>':nilai>=50?'C (hhmmmmmm Not bad mungkin kamu baru tahu politik)<br><a href="https://mp3tourl.com/audio/1777104863640-1c7e82c1-83a4-44da-b11d-fd5d06db4e05.mp3">Ini hadiah untukmu karena mendapatkan nilai C (KLIK!)</a>':nilai>=25?'D(hmmm sepertinya kamu sedilit mencurigakan)<a href="https://files.catbox.moe/mwwi9g.mpeg"><br>ini hadiah untukmu karena mendapatkan nilai D</a><br><a href="https://files.catbox.moe/ykdp3u.mp4">Ini hadiah untukmu karena mendapatkan nilai D (KLIK!)</a>.':'F (aku curiga apakah anda WNI?)<br><a href="https://mp3tourl.com/audio/1777093346300-767af131-200b-4b61-8ac1-9b41e7054742.mp3">ini hadiah untukmu karena mendapatkan nilai F (KLIK!)</a>';
