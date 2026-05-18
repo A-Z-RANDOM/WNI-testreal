@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SIMPLE KUIZ V1.1</title>
+<title>SIMPLE KUIZ V1.2</title>
 
 <title>Apakah kamu WNI? </title>
 
@@ -33,7 +33,7 @@ button{padding:12px 18px;background:#2563eb;color:#fff;border:none;border-radius
 <script>
 function mboh(){
   let nama = document.getElementById("nama").value;
-  document.getElementById("salam").innerHTML = "<h3>Halo</h3>" + nama + ",<h3>buktikan:</h3>" + " <h2>bahwa anda WNI!!!</h2>";
+  document.getElementById("salam").innerHTML = "Halo " + nama + ", buktikan:" + " <h2>bahwa anda WNI!!!</h2>";
 }
 </script>
 <div class="question">
@@ -51,7 +51,7 @@ function mboh(){
 <label><input type="radio" name="q2" value="c"> C. Soekarno</label>
 <label><input type="radio" name="q2" value="d"> D. Pak ganjar</label>
 </div><div class="question">
-<p>3. apakah benar salah satu penyebab jokowi menjadi presiden karena masuk Gorong gorong? </p> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbM0wqnb5Dis0dyxCK1kLrC-IhuVBC_IhOrVkZ1ZJASg&s=10"width="250">
+<p>3. apakah benar salah satu penyebab jokowi menjadi presiden karena masuk Gorong gorong? </p> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbM0wqnb5Dis0dyxCK1kLrC-IhuVBC_IhOrVkZ1ZJASg&s=10"width="300">
 <label><input type="radio" name="q3" value="benar"> Benar</label>
 <label><input type="radio" name="q3" value="salah"> Salah</label>
 </div><div class="question">
@@ -107,7 +107,7 @@ function mboh(){
 <label><input type="radio" name="q12" value="benar"> Benar</label>
 <label><input type="radio" name="q12" value="salah"> Salah</label>
 </div><div class="question">
-<p>13. pulau papua adalah pulau paling kaya di Indonesia tapi miskin karena pemerintah yang BOBROK!!!!!</p>
+<p>13. pulau papua adalah pulau paling kaya di Indonesia tapi miskin karena sebagian pemerintah yang tidak becus mengelola Sumber daya?</p>
 <label><input type="radio" name="q13" value="benar"> Benar</label>
 <label><input type="radio" name="q13" value="salah"> Salah</label>
 </div><div class="question">
@@ -161,12 +161,38 @@ Apakah orang tersebut bernama pranowo?
 <label><input type="radio" name="q20" value="salah"> Salah</label>
 <p style="font-size:10px;">Dibuat oleh AI dan disempurnakan oleh manusia:)</p>
 <p style="font-size:0.0001px;">19 juta lapangan pekerjaan</p>
-  <h4>⚠️⚠️⚠️DISCLAIMER INI ADALAH WEB HANYA DIBUAT BUNTUK BERSENANG SENANG,TIDAK MENGANDUNG UNSUR BERBAHAYA DAN MENYINGGUNG PIHAK MANAPUN⚠️⚠️⚠️</h4>
+  <h4>⚠️⚠️⚠️DISCLAIMER INI ADALAH WEB HANYA DIBUAT BUNTUK BERSENANG SENANG⚠️⚠️⚠️</h4>
+  <p> Catatan:<br>web ini akan diperbarui setiap beberapa bulan sekali mikirin soal dan konsep, kalo gk ada update guanya aja yang malas</p>
 <!-- SUBMIT -->
-<button id="btnSmit"onclick="cekJawaban()">Submit</button>
+<button id="btnSubmit"onclick="cekJawaban()">Submit</button>
 <br>
   <br>
  <label>creator:<br><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWuOrfGq543KeWUvaUXyapxaNpJbJXK2a9wDlabvxkureOr0ZQ-0Rx1_4&s=10" width="30"><a href="https://www.tiktok.com/@a_z_gaming01">@a_z_gaming01</a></label>
+ <h4>beri masukan dan saran</h4>
+ <form action="https://formspree.io/f/xjgzveby" method="POST">
+
+  <input
+    type="text"
+    name="nama"
+    placeholder="Nama(opsional isi terserah) "
+    required
+  >
+
+  <br><br>
+
+  <textarea
+    name="masukan"
+    placeholder="Tulis masukan dan pendapat anda..."
+    required
+  ></textarea>
+
+  <br><br>
+
+  <button type="submit">
+    Kirim
+  </button>
+
+</form>
 
 <div id="hasil" class="result"></div>
 
@@ -178,13 +204,12 @@ function cekJawaban(){
 let nama = document.getElementById("nama").value || "Peserta";
 
 // ❗ KONFIRMASI
-let yakin = confirm("Apakah kamu yakin menyelesaikan tes ini, " + nama + " ?");
-if(!yakin) return;
-
+let Selesai = confirm("Apakah kamu yakin menyelesaikan tes ini, " + nama + " ?");
+if(!Selesai) return;
 
 // 🔑 KUNCI JAWABAN
 let kunci={
-q1:'b',q2:'c',q3:'benar',q4:'salah',q5:'a',q6:'a',q7:'benar',q8:'benar',q9:'d',q10:'benar',q11:'d',q12:'benar',q13:'benar',q14:'c',q15:'benar',q16:'d',q17:'salah',q18:'benar',q19:'d',q20:'salah'
+q1:'b',q2:'c',q3:'benar',q4:'salah',q5:'a',q6:'a',q7:'benar',q8:'benar',q9:'d',q10:'benar',q11:'d',q12:'benar',q13:'benar',q14:'c',q15:'benar',q16:'d',q17:'salah',q18:'benar',q19:'d',q20:'salah', 
 };
 
 let skor = 0;
@@ -216,7 +241,7 @@ let grade = nilai>=90?'A (SELAMAT KAMU FIX WNI)<a href="https://files.catbox.moe
 
 // 📊 TAMPILKAN HASIL
 document.getElementById("hasil").innerHTML =
-"Halo " + nama +
+"Halo " + nama + " selamat kamu mendapatkan;" +
 "<br>Skor: " + skor + "/" + total +
 "<br>Nilai: " + nilai +
 "<br>Grade: " + grade;
@@ -247,6 +272,7 @@ let tombol = document.getElementById("btnSubmit");
 tombol.disabled = true;
 tombol.innerHTML = "Sudah disubmit";
 tombol.style.background = "gray"
+tombol.width = "200px"
 }
 </script>
 </body>
